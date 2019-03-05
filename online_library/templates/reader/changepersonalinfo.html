@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Personal Information</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/personalinfo/font-awesome-4.2.0/css/font-awesome.css" type="text/css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/personalinfo/css/bootstrap.css" type="text/css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/static/personalinfo/css/style.css" type="text/css" />
+    <!-- Style -->
+    <link rel="stylesheet" href="/static/personalinfo/css/responsive.css" type="text/css" />
+    <!-- Responsive -->
+      <!-- DataTables CSS -->
+    <link href="/static/booklist/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="/static/booklist/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/booklist/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/booklist/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <div class="main">
+        <header class="header">
+
+
+            <span><img src="/static/personalinfo/images/resource/bg.PNG" width=250.3 height=55 alt="" /></span>
+
+
+
+        </header>
+        <!-- Header -->
+        <div class="page-container menu-left">
+            <aside class="sidebar">
+                <div class="profile-stats">
+                    <div class="mini-profile">
+                        <span><img src="{{ reader.icon.url }}" alt="" /></span>
+                        <h3>{{ reader.nickname }}</h3>
+                        <h6 class="status online"><i></i> Online</h6>
+                        <a href="/reader/logout" title="Logout" class="logout red" data-toggle="tooltip" data-placement="right"><i class="fa fa-power-off"></i></a>
+                    </div>
+
+                </div>
+                <div class="menu-sec">
+                    <div id="menu-toogle" class="menus">
+                        <div class="single-menu">
+                            <h2><a  href="/book/index" title=""><i class="fa fa-home"></i><span>Home Page</span></a></h2>
+
+                        </div>
+                        <div class="single-menu">
+                            <h2><a href="/reader/personalinfo" title=""><i class="fa fa-desktop"></i><span>Personal Center</span></a></h2>
+
+                        </div>
+
+                    </div>
+                    <p>2018 Copyright @ Iris
+                    </p>
+                </div>
+                <!-- Menu Sec -->
+            </aside>
+            <!-- Aside Sidebar -->
+            <div class="content-sec">
+
+                <div class="container">
+                    <div class="title-date-range">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="main-title">
+                                    <h1>My space</h1>
+                                    <h5>Welcome back, {{ reader.nickname }}</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- title Date Range -->
+                <form method="post" action="{% url 'change_personalinfo' %}" class="pageForm required-validate" onsubmit="reture validateCallback(this, dialogAjaxDone)">
+                    <div class="row">
+                        <div class="masonary-grids">
+                            <div class="col-md-12">
+                                <div class="widget-area">
+                                    <h2 class="widget-title"><strong>User</strong> Profile</h2>
+                                    <div class="wizard-form-h">
+                                        <div id="wizard" class="swMain">
+
+                                            <div id="step-1">
+                                                <h2 class="StepTitle">Account Information</h2>
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">Username</label>
+                                                        <input class="input-style" name="username" type="text" readonly="readonly" placeholder={{ reader.account.username }}   >
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">Nickname</label>
+                                                        <input class="input-style" name="nickname" type="text" value="{{ reader.nickname }}"
+                       onfocus="if(this.value=='{{ reader.nickname }}'){this.value=''}"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">Email</label>
+                                                        <input type="text" name="email" value="{{ reader.email }}"
+                       onfocus="if(this.value=='{{ reader.email }}'){this.value=''}" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div id="step-2">
+
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">Phone number</label>
+                                                        <input type="text" name="phone"value="{{ reader.phone }}"
+                       onfocus="if(this.value=='{{ reader.phone }}'){this.value=''}"/>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                             <div class="col-md-12" style="text-align: center ; vertical-align:middle">   <button class="btn green"  type="submit" >Submit</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Script -->
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/enscroll.js"></script>
+    <script type="text/javascript" src="js/grid-filter.js"></script>
+    <script type="text/javascript" src="js/jquery.smartWizard.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Smart Wizard
+            $('#wizard').smartWizard();
+
+            function onFinishCallback() {
+                $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+                //alert('Finish Clicked');
+            }
+        });
+    </script>
+
+ <!-- jQuery -->
+    <script src="/static/booklist/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/booklist/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/static/booklist/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="/static/booklist/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/static/booklist/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="/static/booklist/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/static/booklist/dist/js/sb-admin-2.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+
+</body>
+
+</html>

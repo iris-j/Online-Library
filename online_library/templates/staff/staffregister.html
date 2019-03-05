@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Register</title>
+<link href="/static/register/style_log.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/static/register/style.css">
+<link rel="stylesheet" type="text/css" href="/static/register/userpanel.css">
+<link rel="stylesheet" type="text/css" href="/static/register/jquery.ui.all.css">
+		<style>
+			.file-box{
+				display: inline-block;
+				position: relative;
+				padding: 3px 5px;
+				overflow: hidden;
+				color:#fff;
+				background-color: #ccc;
+			}
+			.file-btn{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+    			left: 0;
+    			outline: none;
+    			background-color: transparent;
+    			filter:alpha(opacity=0);
+				-moz-opacity:0;
+				-khtml-opacity: 0;
+				opacity: 0;
+			}
+		</style>
+</head>
+
+<body class="login" mycollectionplug="bind">
+<form method = 'post' enctype="multipart/form-data">
+
+
+
+<div class="login_m">
+<div class="login_logo"><img src="/static/register/mylogo.png" width="520" height="80"></div>
+<div class="login_boder">
+
+<div class="login_padding" id="login_model">
+
+  <h3>USERNAME</h3>
+  <label>
+    <input type="text" name="username" class="txt_input txt_input2" >
+  </label>
+  <h3>PASSWORD</h3>
+  <label>
+    <input type="password" name="password" id="userpwd" class="txt_input" >
+  </label>
+   <h3>REPEAT PASSWORD</h3>
+  <label>
+    <input type="password" name="repeatpassword" id="userpwd" class="txt_input" >
+  </label>
+   <h3>FIRST NAME</h3>
+  <label>
+    <input type="text" name="firstname" class="txt_input txt_input2" >
+  </label>
+    <h3>LAST NAME</h3>
+  <label>
+    <input type="text" name="lastname" class="txt_input txt_input2" >
+  </label>
+   <h3>SEX</h3>
+  <label>
+    <input type="text" name="sex" class="txt_input txt_input2" >
+  </label>
+<h3>PHONE</h3>
+  <label>
+    <input type="text" name="phone" class="txt_input txt_input2" >
+  </label>
+<h3>EMAIL</h3>
+  <label>
+    <input type="text" name="email" class="txt_input txt_input2" >
+  </label>
+
+
+
+
+
+  <div class="rem_sub">
+
+    <label>
+      <input type="submit" class="sub_button" name="button" id="button" value="Register" style="opacity: 0.7;"/>
+    </label>
+  </div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+<!--login_padding  Sign up end-->
+
+
+
+
+</form>
+</body></html>

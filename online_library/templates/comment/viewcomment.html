@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Comments</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/personalinfo/font-awesome-4.2.0/css/font-awesome.css" type="text/css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/personalinfo/css/bootstrap.css" type="text/css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/static/personalinfo/css/style.css" type="text/css" />
+    <!-- Style -->
+    <link rel="stylesheet" href="/static/personalinfo/css/responsive.css" type="text/css" />
+    <!-- Responsive -->
+      <!-- DataTables CSS -->
+    <link href="/static/booklist/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="/static/booklist/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/booklist/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/booklist/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <div class="main">
+
+       <div class="page-container menu-left">
+    <aside class="sidebar">
+        <div class="profile-stats">
+            <div class="mini-profile">
+
+                <h4 ><font color="#f5f5f5">{{ target.title }}</font></h4>
+
+            </div>
+
+        </div>
+        <div class="menu-sec">
+            <div id="menu-toogle" class="menus">
+                <div class="single-menu">
+                    <h2><a title=""><span>ISBN: {{ target.isbn }}</span></a></h2>
+
+                </div>
+                <div class="single-menu">
+                    <h2><a title=""><span>Author: {{ target.author }}</span></a></h2>
+
+                </div>
+                <div class="single-menu">
+                    <h2><a title=""><span>Publisher: {{ target.publisher }}</span></a></h2>
+                </div>
+                <div class="single-menu">
+                    <h2><a href={{ target.details }}><span>Douban Link</span></a></h2>
+
+                </div>
+                 <div class="single-menu">
+                            <h2><a href="/book/index"><i class="fa fa-home"></i><span>Home Page</span></a></h2>
+
+                 </div>
+                  <div class="single-menu">
+                            <h2><a href="/reader/personalinfo"><i class="fa fa-desktop"></i><span>Personal Center</span></a></h2>
+
+                        </div>
+
+
+            </div>
+            <p>2018 Copyright @ Iris
+            </p>
+        </div>
+        <!-- Menu Sec -->
+    </aside>
+    <!-- Aside Sidebar -->
+    <div class="content-sec">
+
+        <div class="container">
+            <div class="title-date-range">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="main-title">
+                            <h1>What do they say?</h1>
+                            <h4>Average Rating: {{ avg_rating }}</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- title Date Range -->
+                    <div class="row">
+                        <div class="masonary-grids">
+
+                            <div class="col-md-12">
+                                <div class="widget-area no-padding blank">
+                                    <div class="status-upload">
+                                         {% for line in comments %}
+                                             <div class="col-md-12">
+                                                <div class="inline-form">
+                                                    <label class="c-label">{{ line.user.nickname }},{{ line.comment_time }}</label>
+                                                    <input type="text" value="{{ line.content }}" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                         {% endfor %}
+                                     </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+        </div>
+       </div>
+
+
+
+
+
+
+
+    <!-- Script -->
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/enscroll.js"></script>
+    <script type="text/javascript" src="js/grid-filter.js"></script>
+    <script type="text/javascript" src="js/jquery.smartWizard.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Smart Wizard
+            $('#wizard').smartWizard();
+
+            function onFinishCallback() {
+                $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+                //alert('Finish Clicked');
+            }
+        });
+    </script>
+
+ <!-- jQuery -->
+    <script src="/static/booklist/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/booklist/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/static/booklist/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="/static/booklist/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/static/booklist/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="/static/booklist/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/static/booklist/dist/js/sb-admin-2.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+
+</body>
+
+</html>

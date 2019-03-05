@@ -1,0 +1,15 @@
+配置部署运行：
+在pycharm中打开工程。
+主要是django和本地数据库的连接。修改online_library目录下的settings.py 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'online_library_db',
+        'USER': 'root',
+        'PASSWORD': ''
+    }
+}
+
+把NAME、USER、PASSWORD修改成本地数据库的设置即可。
+
+

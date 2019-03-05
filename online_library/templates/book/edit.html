@@ -1,0 +1,169 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit book</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/personalinfo/font-awesome-4.2.0/css/font-awesome.css" type="text/css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/personalinfo/css/bootstrap.css" type="text/css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/static/personalinfo/css/style.css" type="text/css" />
+    <!-- Style -->
+    <link rel="stylesheet" href="/static/personalinfo/css/responsive.css" type="text/css" />
+    <!-- Responsive -->
+      <!-- DataTables CSS -->
+    <link href="/static/booklist/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="/static/booklist/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/booklist/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/booklist/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="page">
+    <form method="post" action="{% url 'books_edit' book.isbn %}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">{% csrf_token %}
+                    <div class="row">
+                        <div class="masonary-grids">
+                            <div class="col-md-12">
+                                <div class="widget-area">
+                                    <h2 class="widget-title"><strong>Edit</strong> Book</h2>
+                                    <div class="wizard-form-h">
+                                        <div id="wizard" class="swMain">
+
+                                            <div id="step-1">
+                                                <h2 class="StepTitle">Book Information</h2>
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">ISBN</label>
+                                                        <input class="input-style" type="text" name="isbn" value="{{ book.isbn }}" readonly="readonly"  >
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">TITLE</label>
+                                                        <input class="input-style" type="text" name="title" value="{{ book.title }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">AUTHOR</label>
+                                                        <input class="input-style"type="text" name="author" value="{{ book.author }}" >
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">PUBLISHER</label>
+                                                        <input class="input-style"type="text" name="publisher" value="{{ book.publisher }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">DOUBAN LINK</label>
+                                                        <input class="input-style"type="text" name="douban link" value="{{ book.details }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">CATEGORY</label>
+                                                        <input class="input-style"type="text" name="category" value="{{ book.category }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">QUANTITY</label>
+                                                        <input class="input-style"type="text" name="quantity" value="{{ book.quantity }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="inline-form">
+                                                        <label class="c-label">REMAIN</label>
+                                                        <input class="input-style"type="text" name="remain" value="{{ book.remain }}" >
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="text-align: center ; vertical-align:middle">   <button class="btn green" type="submit"  >Submit</button></div>
+                                    <div class="col-md-6" style="text-align: center ; vertical-align:middle">   <button class="btn red" type="button" onclick="window.location.href='/staff/manage'"  >Cancel</button></div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+	</form>
+
+
+</div>
+
+
+
+ <!-- Script -->
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/enscroll.js"></script>
+    <script type="text/javascript" src="js/grid-filter.js"></script>
+    <script type="text/javascript" src="js/jquery.smartWizard.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Smart Wizard
+            $('#wizard').smartWizard();
+
+            function onFinishCallback() {
+                $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+                //alert('Finish Clicked');
+            }
+        });
+    </script>
+
+ <!-- jQuery -->
+    <script src="/static/booklist/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/booklist/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/static/booklist/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="/static/booklist/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/static/booklist/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="/static/booklist/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/static/booklist/dist/js/sb-admin-2.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+
+</body>
+
+
+
+
+
